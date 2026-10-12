@@ -1,0 +1,24 @@
+{
+  "name": "khabarsarpanch",
+  "version": "1.0.0",
+  "description": "खबर सरपंच – अपनी माटी, अपनी बात",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "news",
+    "hindi",
+    "journalism"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.8"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.3.1"
+  }
+}
