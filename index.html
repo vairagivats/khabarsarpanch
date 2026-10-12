@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>खबर सरपंच – अपनी माटी, अपनी बात</title>
+<meta name="description" content="खबर सरपंच – देश-विदेश, गाँव-देहात, जनहित, किसान और ज़मीनी रिपोर्ट। अपनी माटी, अपनी बात।">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&family=Mukta:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0b5d2a; --green-dark:#073d1c; --green-light:#e8f3ec;
+  --gold:#c8961e; --gold-light:#f4c542; --cream:#fbf8f0; --ink:#1b1b1b; --muted:#666; --red:#c62828;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Hind','Mukta',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
+
+/* top bar */
+.topbar{background:var(--green-dark);color:#fff;font-size:14px}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;padding-top:6px;padding-bottom:6px;gap:12px;flex-wrap:wrap}
+.topbar a:hover{color:var(--gold-light)}
+
+/* header */
+header.site{background:#fff;border-bottom:4px solid var(--gold);position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.head-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:68px;width:68px;object-fit:contain}
+.brand .name{font-family:'Tiro Devanagari Hindi',serif;font-size:34px;font-weight:700;color:var(--green);line-height:1}
+.brand .tag{font-size:14px;color:var(--gold);font-weight:600;margin-top:4px}
+.logo-fallback{display:none;width:68px;height:68px;border-radius:50%;border:4px solid var(--gold);background:var(--green);color:#fff;align-items:center;justify-content:center;font-weight:800;font-size:22px}
+nav.main ul{list-style:none;display:flex;gap:4px;flex-wrap:wrap}
+nav.main a{display:block;padding:10px 14px;font-weight:600;border-radius:6px;color:var(--green-dark)}
+nav.main a:hover{background:var(--green);color:#fff}
+.menu-btn{display:none;background:var(--green);color:#fff;border:0;border-radius:6px;padding:8px 12px;font-size:20px;cursor:pointer}
+
+/* breaking */
+.breaking{background:var(--green);color:#fff}
+.breaking .container{display:flex;align-items:center;gap:14px;overflow:hidden}
+.breaking .label{background:var(--red);padding:8px 16px;font-weight:700;white-space:nowrap}
+.ticker{overflow:hidden;flex:1;white-space:nowrap}
+.ticker span{display:inline-block;padding-left:100%;animation:scroll 40s linear infinite}
+.ticker:hover span{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-100%)}}
+
+/* hero */
+.hero-banner{margin-top:16px;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.15);background:linear-gradient(135deg,var(--green-dark),var(--green))}
+.hero-banner img{width:100%;height:auto}
+.hero-fallback{display:none;padding:60px 24px;text-align:center;color:#fff}
+.hero-fallback h1{font-family:'Tiro Devanagari Hindi',serif;font-size:clamp(40px,8vw,80px);color:var(--gold-light)}
+.hero-fallback p{font-size:clamp(20px,3vw,32px)}
+
+/* sections */
+section{padding:34px 0}
+.sec-title{display:flex;align-items:center;gap:12px;margin-bottom:20px;border-bottom:2px solid var(--green);}
+.sec-title h2{background:var(--green);color:#fff;padding:6px 18px;font-size:22px;border-radius:6px 6px 0 0}
+.sec-title a{margin-left:auto;color:var(--green);font-weight:600;font-size:15px}
+
+.grid-top{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07);transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.thumb{aspect-ratio:16/9;display:flex;align-items:flex-end;padding:14px;color:#fff;font-size:44px;background:linear-gradient(135deg,var(--green),var(--green-dark))}
+.thumb.g2{background:linear-gradient(135deg,#b8860b,#7a5a05)}
+.thumb.g3{background:linear-gradient(135deg,#1e7e45,#0b3d1f)}
+.thumb.g4{background:linear-gradient(135deg,#8a5a2b,#4e3118)}
+.thumb.g5{background:linear-gradient(135deg,#2d6a8a,#173b4e)}
+.card .body{padding:14px 16px 18px}
+.cat{display:inline-block;background:var(--green-light);color:var(--green);font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:6px}
+.card h3{font-size:19px;line-height:1.4;margin-bottom:6px}
+.card.big h3{font-size:28px;font-family:'Tiro Devanagari Hindi',serif}
+.meta{font-size:13px;color:var(--muted)}
+.side-list{display:flex;flex-direction:column;gap:14px}
+.mini{display:flex;gap:12px;background:#fff;padding:10px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.mini .ic{flex:0 0 64px;height:64px;border-radius:8px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px}
+.mini h4{font-size:16px;line-height:1.4}
+.cards-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+
+/* categories strip */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.cat-tile{background:var(--green);color:#fff;border-radius:12px;padding:20px 12px;text-align:center;font-weight:700;border-bottom:4px solid var(--gold);transition:.2s}
+.cat-tile:hover{background:var(--green-dark);transform:translateY(-3px)}
+.cat-tile .e{font-size:32px;display:block;margin-bottom:6px}
+
+/* about / submit */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.panel h3{font-family:'Tiro Devanagari Hindi',serif;color:var(--green);font-size:26px;margin-bottom:10px}
+form label{display:block;font-weight:600;margin:10px 0 4px}
+form input,form textarea,form select{width:100%;padding:10px 12px;border:1px solid #ccc;border-radius:8px;font:inherit}
+form input:focus,form textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.btn{display:inline-block;margin-top:14px;background:var(--green);color:#fff;border:0;padding:12px 26px;border-radius:8px;font-weight:700;font-size:16px;cursor:pointer;border-bottom:3px solid var(--gold)}
+.btn:hover{background:var(--green-dark)}
+.btn.gold{background:var(--gold);color:#222;border-color:var(--green)}
+
+/* footer */
+footer{background:var(--green-dark);color:#dfeee4;margin-top:20px;border-top:5px solid var(--gold)}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;padding:34px 16px}
+footer h4{color:var(--gold-light);margin-bottom:10px;font-size:18px}
+footer li{list-style:none;margin:6px 0}
+footer a:hover{color:var(--gold-light)}
+.copy{text-align:center;padding:14px;background:#04281240;font-size:14px;border-top:1px solid #ffffff22}
+.foot img{height:80px;margin-bottom:8px;background:#fff;border-radius:50%}
+
+@media(max-width:860px){
+  .grid-top,.two,.foot{grid-template-columns:1fr}
+  .menu-btn{display:block}
+  nav.main{display:none;width:100%}
+  nav.main.open{display:block}
+  nav.main ul{flex-direction:column}
+  .head-row{flex-wrap:wrap}
+  .brand .name{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span id="today">📅 आज की तारीख</span>
+    <span>✉️ <a href="mailto:khabarsarpanch@gmail.com">khabarsarpanch@gmail.com</a></span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="container head-row">
+    <a href="#top" class="brand">
+      <img src="logo.png" alt="खबर सरपंच लोगो" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="logo-fallback">खबर</span>
+      <div>
+        <div class="name">खबर सरपंच</div>
+        <div class="tag">अपनी माटी, अपनी बात</div>
+      </div>
+    </a>
+    <button class="menu-btn" aria-label="मेन्यू" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <nav class="main" id="nav">
+      <ul>
+        <li><a href="#top">होम</a></li>
+        <li><a href="#desh">देश-विदेश</a></li>
+        <li><a href="#gaon">गाँव-देहात</a></li>
+        <li><a href="#janhit">जनहित</a></li>
+        <li><a href="#kisan">किसान</a></li>
+        <li><a href="#zameeni">ज़मीनी रिपोर्ट</a></li>
+        <li><a href="#sampark">संपर्क</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="breaking">
+  <div class="container">
+    <div class="label">🔴 ताज़ा खबर</div>
+    <div class="ticker"><span>
+      खबर सरपंच में आपका स्वागत है &nbsp;•&nbsp; अपनी माटी, अपनी बात &nbsp;•&nbsp; गाँव की हर आवाज़, हर खबर सबसे पहले &nbsp;•&nbsp; अपने क्षेत्र की खबर भेजने के लिए khabarsarpanch@gmail.com पर लिखें &nbsp;•&nbsp; किसान, जनहित और ज़मीनी मुद्दों पर हमारी खास नज़र
+    </span></div>
+  </div>
+</div>
+
+<main id="top">
+  <div class="container">
+    <div class="hero-banner">
+      <img src="banner.png" alt="खबर सरपंच – अपनी माटी, अपनी बात" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="hero-fallback">
+        <h1>खबर सरपंच</h1>
+        <p>अपनी माटी, अपनी बात</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- categories -->
+  <section>
+    <div class="container cats">
+      <a class="cat-tile" href="#desh"><span class="e">🌏</span>देश-विदेश</a>
+      <a class="cat-tile" href="#gaon"><span class="e">🏡</span>गाँव-देहात</a>
+      <a class="cat-tile" href="#janhit"><span class="e">👥</span>जनहित</a>
+      <a class="cat-tile" href="#kisan"><span class="e">🌾</span>किसान</a>
+      <a class="cat-tile" href="#zameeni"><span class="e">🎙️</span>ज़मीनी रिपोर्ट</a>
+    </div>
+  </section>
+
+  <!-- top stories -->
+  <section>
+    <div class="container">
+      <div class="sec-title"><h2>मुख्य खबरें</h2></div>
+      <div class="grid-top">
+        <article class="card big">
+          <div class="thumb">📰</div>
+          <div class="body">
+            <span class="cat">मुख्य समाचार</span>
+            <h3>यहाँ आपकी सबसे बड़ी खबर की हेडलाइन लगेगी</h3>
+            <p>खबर का संक्षिप्त विवरण यहाँ लिखें। यह एक नमूना सामग्री है, जिसे आप अपनी असली खबरों से बदल सकते हैं।</p>
+            <p class="meta">🕒 अभी अभी &nbsp;|&nbsp; ✍️ खबर सरपंच डेस्क</p>
+          </div>
+        </article>
+        <div class="side-list">
+          <a class="mini" href="#"><div class="ic">🌏</div><div><h4>देश-विदेश की बड़ी खबर की हेडलाइन</h4><p class="meta">2 घंटे पहले</p></div></a>
+          <a class="mini" href="#"><div class="ic">🏡</div><div><h4>गाँव-देहात से ताज़ा अपडेट की हेडलाइन</h4><p class="meta">3 घंटे पहले</p></div></a>
+          <a class="mini" href="#"><div class="ic">🌾</div><div><h4>किसानों से जुड़ी अहम खबर की हेडलाइन</h4><p class="meta">5 घंटे पहले</p></div></a>
+          <a class="mini" href="#"><div class="ic">👥</div><div><h4>जनहित का मुद्दा – हेडलाइन यहाँ</h4><p class="meta">6 घंटे पहले</p></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- category sections -->
+  <section id="desh">
+    <div class="container">
+      <div class="sec-title"><h2>🌏 देश-विदेश</h2><a href="#">सभी खबरें →</a></div>
+      <div class="cards-3">
+        <article class="card"><div class="thumb g5">🌏</div><div class="body"><span class="cat">देश</span><h3>देश की प्रमुख खबर की हेडलाइन यहाँ लगाएँ</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb g5">🏛️</div><div class="body"><span class="cat">राजनीति</span><h3>राजनीतिक हलचल पर ताज़ा खबर की हेडलाइन</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb g5">✈️</div><div class="body"><span class="cat">विदेश</span><h3>विदेश की बड़ी खबर की हेडलाइन यहाँ</h3><p class="meta">आज</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="gaon">
+    <div class="container">
+      <div class="sec-title"><h2>🏡 गाँव-देहात</h2><a href="#">सभी खबरें →</a></div>
+      <div class="cards-3">
+        <article class="card"><div class="thumb g4">🏡</div><div class="body"><span class="cat">पंचायत</span><h3>पंचायत स्तर की खबर की हेडलाइन यहाँ</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb g4">💧</div><div class="body"><span class="cat">विकास</span><h3>गाँव के विकास कार्यों की खबर की हेडलाइन</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb g4">🏫</div><div class="body"><span class="cat">शिक्षा-स्वास्थ्य</span><h3>स्कूल व स्वास्थ्य सेवाओं पर खबर की हेडलाइन</h3><p class="meta">आज</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="janhit">
+    <div class="container">
+      <div class="sec-title"><h2>👥 जनहित</h2><a href="#">सभी खबरें →</a></div>
+      <div class="cards-3">
+        <article class="card"><div class="thumb g2">👥</div><div class="body"><span class="cat">जनहित</span><h3>आम जनता से जुड़े मुद्दे की हेडलाइन यहाँ</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb g2">📋</div><div class="body"><span class="cat">योजना</span><h3>सरकारी योजनाओं की जानकारी की हेडलाइन</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb g2">⚖️</div><div class="body"><span class="cat">अधिकार</span><h3>आपके अधिकारों से जुड़ी खबर की हेडलाइन</h3><p class="meta">आज</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="kisan">
+    <div class="container">
+      <div class="sec-title"><h2>🌾 किसान</h2><a href="#">सभी खबरें →</a></div>
+      <div class="cards-3">
+        <article class="card"><div class="thumb g3">🌾</div><div class="body"><span class="cat">खेती</span><h3>खेती-किसानी की ताज़ा खबर की हेडलाइन</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb g3">📈</div><div class="body"><span class="cat">मंडी भाव</span><h3>मंडी भाव और फसल कीमतों की हेडलाइन</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb g3">🚜</div><div class="body"><span class="cat">योजना</span><h3>किसान योजनाओं की जानकारी की हेडलाइन</h3><p class="meta">आज</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="zameeni">
+    <div class="container">
+      <div class="sec-title"><h2>🎙️ ज़मीनी रिपोर्ट</h2><a href="#">सभी रिपोर्ट →</a></div>
+      <div class="cards-3">
+        <article class="card"><div class="thumb">🎙️</div><div class="body"><span class="cat">ग्राउंड रिपोर्ट</span><h3>मौके से ग्राउंड रिपोर्ट की हेडलाइन यहाँ</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb">🎥</div><div class="body"><span class="cat">वीडियो</span><h3>खास वीडियो रिपोर्ट की हेडलाइन यहाँ</h3><p class="meta">आज</p></div></article>
+        <article class="card"><div class="thumb">🗣️</div><div class="body"><span class="cat">जनता की आवाज़</span><h3>जनता की आवाज़ – जनता की ज़ुबानी</h3><p class="meta">आज</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- about + contact -->
+  <section id="sampark">
+    <div class="container two">
+      <div class="panel">
+        <h3>खबर सरपंच के बारे में</h3>
+        <p>खबर सरपंच एक हिंदी न्यूज़ मीडिया चैनल है, जो गाँव की चौपाल से लेकर देश की संसद तक की हर अहम खबर आप तक पहुँचाता है। हमारा मकसद है — <strong>अपनी माटी, अपनी बात</strong>।</p>
+        <p style="margin-top:10px">देश-विदेश, गाँव-देहात, जनहित, किसान और ज़मीनी रिपोर्ट — सच, निष्पक्ष और ज़िम्मेदार पत्रकारिता के साथ।</p>
+        <p style="margin-top:14px">📧 <a href="mailto:khabarsarpanch@gmail.com" style="color:var(--green);font-weight:700">khabarsarpanch@gmail.com</a></p>
+      </div>
+      <div class="panel">
+        <h3>अपनी खबर हम तक भेजें</h3>
+        <form id="newsForm">
+          <label for="n">आपका नाम</label>
+          <input id="n" required placeholder="नाम लिखें">
+          <label for="p">मोबाइल नंबर</label>
+          <input id="p" type="tel" placeholder="मोबाइल नंबर">
+          <label for="a">गाँव / शहर / ज़िला</label>
+          <input id="a" placeholder="स्थान लिखें">
+          <label for="m">आपकी खबर / संदेश</label>
+          <textarea id="m" rows="4" required placeholder="अपनी खबर यहाँ लिखें..."></textarea>
+          <button class="btn" type="submit">ईमेल से भेजें ✉️</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>
+      <img src="logo.png" alt="खबर सरपंच" onerror="this.style.display='none'">
+      <h4>खबर सरपंच</h4>
+      <p>अपनी माटी, अपनी बात।<br>गाँव से देश तक, हर खबर आपके साथ।</p>
+    </div>
+    <div>
+      <h4>श्रेणियाँ</h4>
+      <ul>
+        <li><a href="#desh">देश-विदेश</a></li>
+        <li><a href="#gaon">गाँव-देहात</a></li>
+        <li><a href="#janhit">जनहित</a></li>
+        <li><a href="#kisan">किसान</a></li>
+        <li><a href="#zameeni">ज़मीनी रिपोर्ट</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>संपर्क करें</h4>
+      <ul>
+        <li>✉️ <a href="mailto:khabarsarpanch@gmail.com">khabarsarpanch@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">© <span id="yr">2026</span> खबर सरपंच। सर्वाधिकार सुरक्षित।</div>
+</footer>
+
+<script>
+  // आज की तारीख हिंदी में
+  try{
+    document.getElementById('today').textContent = '📅 ' + new Date().toLocaleDateString('hi-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  }catch(e){}
+  // खबर भेजने का फ़ॉर्म – ईमेल ऐप खोलता है
+  document.getElementById('newsForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var body = 'नाम: '+n.value+'\nमोबाइल: '+p.value+'\nस्थान: '+a.value+'\n\nखबर / संदेश:\n'+m.value;
+    location.href = 'mailto:khabarsarpanch@gmail.com?subject='+encodeURIComponent('खबर सरपंच – नई खबर / संदेश')+'&body='+encodeURIComponent(body);
+  });
+</script>
+</body>
+</html>
